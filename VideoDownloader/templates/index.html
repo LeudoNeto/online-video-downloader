@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Downloader</title>
+    {% load static %}
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <form>
+        <div class="websites">
+            <label class="website" style="background-color: white;"><input type="radio" name="website" value="yt"><img src="static/img/yt.png"></label>
+            <label class="website" style="background-color: #8a3ab9;"><input type="radio" name="website" value="ig"><img src="static/img/ig.png"></label>
+            <label class="website" style="background-color: #1da1f2;"><input type="radio" name="website" value="tw"><img src="static/img/tw.png"></label>
+            <label class="website" style="background-color: #e60023;"><input type="radio" name="website" value="pin"><img src="static/img/pin.png"></label>
+            <label class="website" style="background-color: #ff4500;"><input type="radio" name="website" value="rd"><img src="static/img/rd.png"></label>
+        </div>
+
+        <div class="url">
+            <div class="chosen" style="margin-bottom: 2em;">
+                <h1>Downloading from: </h1>
+                <img id="chosen_website" src="static/img/ytcomplete.png" height="160">
+            </div>
+
+            <div class="search">
+                <input placeholder="URL: https://www.youtube.com/watch? ..." type="text" name="url">
+                <button class="btn">Download</button>
+            </div>
+        </div>
+
+    </form>
+    
+    <script src="static/js/script.js"></script>
+</body>
+</html>
