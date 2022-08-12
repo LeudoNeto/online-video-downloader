@@ -40,6 +40,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5em;
 }
 
 .url div {
@@ -60,7 +61,7 @@ body {
 
 .search input {
     padding-left: 50px;
-    height: 120px;
+    height: 126px;
     width: 600px;
     font-size: 30px;
     border: 1px solid black;
@@ -71,7 +72,6 @@ body {
     height: 130px;
     width: 200px;
     transition: 0.5s;
-    background-color: #add8e6;
     cursor: pointer;
     border: 0;
     font-weight: bold;
@@ -79,5 +79,33 @@ body {
 
 .btn:hover {
     transition: 0.5s;
-    background-color: #3cdfff;
+}
+
+#yt {
+    background-color: rgb(255, 133, 133);
+}
+
+#yt:hover {
+    background-color: rgb(255, 58, 58);
+}
+
+#ig {
+    background-color: rgb(255, 161, 208);
+}
+
+#ig:hover {
+    background-color: rgb(226, 43, 211);
+}
+
+.video_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5em;
+}
+
+.video_downloads {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }

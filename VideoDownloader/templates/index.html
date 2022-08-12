@@ -9,7 +9,7 @@
 <body>
     <form>
         <div class="websites">
-            <label class="website" style="background-color: white;"><input type="radio" name="website" value="yt"><img src="static/img/yt.png"></label>
+            <label class="website" style="background-color: white;"><input type="radio" checked name="website" value="yt"><img src="static/img/yt.png"></label>
             <label class="website" style="background-color: #8a3ab9;"><input type="radio" name="website" value="ig"><img src="static/img/ig.png"></label>
             <label class="website" style="background-color: #1da1f2;"><input type="radio" name="website" value="tw"><img src="static/img/tw.png"></label>
             <label class="website" style="background-color: #e60023;"><input type="radio" name="website" value="pin"><img src="static/img/pin.png"></label>
@@ -24,11 +24,36 @@
 
             <div class="search">
                 <input placeholder="URL: https://www.youtube.com/watch? ..." type="text" name="url">
-                <button class="btn">Download</button>
+                <button type="input" class="btn" id="yt">Download</button>
             </div>
         </div>
 
     </form>
+
+    {% if video %}
+        <div class="video_info">
+            <h1>{{ video.title }}</h1>
+            <img height="360" src="{{ video.thumbnail_url }}">
+        </div>
+        <form method="POST"> {% csrf_token %}
+            <input type="hidden" name="url" value="{{ url }}">
+            <input type="hidden" name="website" value="{{ website }}">
+            <div class="video_downloads">
+                <div style="display: flex; flex-direction: column; margin-right: 5em;">
+                    <h1>Video</h1>
+                    {% for vid in videos %}
+                        <button name="video" value="{{ vid.resolution }}" class="btn">{{ vid.resolution }}</button>
+                    {% endfor %}
+                </div>
+                <div style="display: flex; flex-direction: column; margin-left: 5em;">
+                    <h1>Audio Only</h1>
+                    {% for audio in audios %}
+                        <button name="audio" value="{{ audio.abr }}" class="btn">{{ audio.abr }}</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </form>
+    {% endif %}
     
     <script src="static/js/script.js"></script>
 </body>
