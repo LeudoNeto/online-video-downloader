@@ -2,6 +2,7 @@ from django.shortcuts import render
 from pytube import YouTube
 from django.http import HttpResponse
 from os import remove
+from .twitter_download import getVideo, save_file
 
 def index(request):
     if request.method == "POST":
@@ -63,3 +64,17 @@ def index(request):
 
             return render(request, 'index.html', context)
     
+        if website == 'ig':
+            pass
+
+        if website == 'tw':
+
+            video = getVideo(url)
+
+            save_file(video.url, video.log['guest_token'])
+
+        if website == 'pin':
+            pass
+
+        if website == 'rd':
+            pass
