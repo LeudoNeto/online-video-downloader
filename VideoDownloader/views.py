@@ -70,8 +70,16 @@ def index(request):
         if website == 'tw':
 
             video = getVideo(url)
+            token = video.log['guest_token']
 
-            save_file(video.url, video.log['guest_token'])
+            save_file(video.url, token)
+            filename = token + '.mp4'
+
+            with open (f'videos/{filename}', 'rb') as video:
+                response = HttpResponse(video, content_type='application/vnd.mp4')
+                response['Content-Disposition'] = 'attachment; filename=' + filename
+                remove(f'videos/{filename}')
+                return response
 
         if website == 'pin':
             pass
